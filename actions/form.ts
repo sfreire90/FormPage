@@ -39,16 +39,21 @@ export async function getFormStats() {
   };
 }
 
+async function checkUser() {
+  const user = await currentUser();
+  if (!user) {
+    throw new UserNotFoundErr();
+  }
+  return user;
+}
+
 export async function createForm(data: formSchemaType) {
   const validation = formSchema.safeParse(data);
   if (!validation.success) {
     throw new Error("Form not valid");
   }
 
-  const user = await currentUser();
-  if (!user) {
-    throw new UserNotFoundErr();
-  }
+  const user = await checkUser();
 
   const { name, description } = data;
 
@@ -65,4 +70,16 @@ export async function createForm(data: formSchemaType) {
   }
 
   return form.id;
+}
+
+export async function getForms() {
+  const user = await checkUser();
+  return await prisma.form.findMany({
+    where: {
+      userId: user.id,
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
 }
