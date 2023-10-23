@@ -13,7 +13,7 @@ export function StatsCards(props: StatsCardsProps) {
       <StatsCard
         title="Visitas totales"
         icon={<LuView className="text-blue-600" />}
-        helperText="Todas las visitas al constructor de formularios"
+        helperText="Total de visitas a los formularios"
         value={data?.visits.toLocaleString() || ""}
         loading={loading}
         className="shadow-md shadow-blue-600"
@@ -21,7 +21,7 @@ export function StatsCards(props: StatsCardsProps) {
       <StatsCard
         title="Creaciones totales"
         icon={<FaWpforms className="text-yellow-600" />}
-        helperText="Todas las creaciones de formularios"
+        helperText="Total de formularios enviados"
         value={data?.submissions.toLocaleString() || ""}
         loading={loading}
         className="shadow-md shadow-yellow-600"
@@ -29,7 +29,7 @@ export function StatsCards(props: StatsCardsProps) {
       <StatsCard
         title="Ratio de creaciones"
         icon={<HiCursorClick className="text-green-600" />}
-        helperText="Visitas en las que se crearon formularios"
+        helperText="Visitas en las que se enviaron formularios"
         value={`${data?.submissionRate.toLocaleString()}%` || ""}
         loading={loading}
         className="shadow-md shadow-green-600"
@@ -37,7 +37,7 @@ export function StatsCards(props: StatsCardsProps) {
       <StatsCard
         title="Porcentaje de rebote"
         icon={<TbArrowBounce className="text-red-600" />}
-        helperText="Visitas sin creación de formularios"
+        helperText="Visitas sin envío de formularios"
         value={`${data?.bounceRate.toLocaleString()}%` || ""}
         loading={loading}
         className="shadow-md shadow-red-600"

@@ -19,8 +19,10 @@ import { BsFileEarmarkPlus } from "react-icons/bs";
 import { toast } from "@/components/ui/use-toast";
 import { formSchema, formSchemaType } from "@/schemas/form";
 import { createForm } from "@/actions/form";
+import { useRouter } from "next/navigation";
 
 export function CreateFormBtn() {
+  const router = useRouter();
   const form = useForm<formSchemaType>({
     resolver: zodResolver(formSchema),
   });
@@ -32,7 +34,7 @@ export function CreateFormBtn() {
         title: "Éxito",
         description: "Formulario Creado",
       });
-      console.info("FORM ID: ", formId);
+      router.push(`/builder/${formId}`);
     } catch (error) {
       toast({
         title: "Error",

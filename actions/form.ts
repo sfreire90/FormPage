@@ -74,6 +74,7 @@ export async function createForm(data: formSchemaType) {
 
 export async function getForms() {
   const user = await checkUser();
+
   return await prisma.form.findMany({
     where: {
       userId: user.id,

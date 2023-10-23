@@ -1,8 +1,8 @@
-import { GetFormStats } from "@/actions/form";
+import { getFormStats } from "@/actions/form";
 import { ReactNode } from "react";
 
 export interface StatsCardsProps {
-  data?: Awaited<ReturnType<typeof GetFormStats>>;
+  data?: Awaited<ReturnType<typeof getFormStats>>;
   loading: boolean;
 }
 
