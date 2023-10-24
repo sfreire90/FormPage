@@ -84,3 +84,14 @@ export async function getForms() {
     },
   });
 }
+
+export async function getFormById(id: number) {
+  const user = await checkUser();
+
+  return await prisma.form.findUnique({
+    where: {
+      userId: user.id,
+      id,
+    },
+  });
+}
