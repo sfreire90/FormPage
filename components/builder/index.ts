@@ -2,3 +2,8 @@ export * from "./form-builder";
 export * from "./preview-dialog-btn";
 export * from "./publish-form-btn";
 export * from "./save-form-btn";
+export * from "./designer";
+export * from "./designer-sidebar";
+export * from "./form-elements";
+export * from "./sidebar-btn-element";
+export * from "./drag-overlay-wrapper";
