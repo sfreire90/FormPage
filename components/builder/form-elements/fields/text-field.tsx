@@ -47,6 +47,9 @@ function DesignerComponent({
         {required && "*"}
       </Label>
       <Input readOnly disabled placeholder={placeholder} />
+      {helperText && (
+        <p className="text-muted-foreground text-[0.8rem]">{helperText}</p>
+      )}
     </div>
   );
 }
