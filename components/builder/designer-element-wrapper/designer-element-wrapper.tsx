@@ -13,7 +13,7 @@ export function DesignerElementWrapper({
   element: FormElementInstance;
 }) {
   const [mouseIsOver, setMouseIsOver] = useState<boolean>(false);
-  const { removeElement } = useDesigner();
+  const { removeElement, selectedElement, setSelectedElement } = useDesigner();
 
   const DesignerElement = FormElements[element.type].designerComponent;
 
@@ -58,6 +58,10 @@ export function DesignerElementWrapper({
       onMouseLeave={() => {
         setMouseIsOver(false);
       }}
+      onClick={(e) => {
+        e.stopPropagation();
+        setSelectedElement(element);
+      }}
     >
       <div
         ref={topHalf.setNodeRef}
@@ -73,7 +77,8 @@ export function DesignerElementWrapper({
             <Button
               className="flex justify-center h-full border rounded-md rounded-l-none bg-red-500"
               variant={"outline"}
-              onClick={() => {
+              onClick={(e) => {
+                e.stopPropagation();
                 removeElement(element.id);
               }}
             >

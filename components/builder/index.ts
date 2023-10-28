@@ -8,3 +8,5 @@ export * from "./form-elements";
 export * from "./sidebar-btn-element";
 export * from "./drag-overlay-wrapper";
 export * from "./designer-element-wrapper";
+export * from "./form-elements-sidebar";
+export * from "./properties-form-sidebar";

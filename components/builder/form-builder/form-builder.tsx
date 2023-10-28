@@ -33,7 +33,7 @@ export function FormBuilder({ form }: { form: Form }) {
   const sensors = useSensors(mouseSensor, touchSensor);
 
   return (
-    <DndContext sensors={sensors}>
+    <DndContext id={form.id.toLocaleString()} sensors={sensors}>
       <main className="flex flex-col w-full">
         <nav className="flex justify-between border-b-2 p-4 gap-3 items-center">
           <h2 className="truncate font-medium">
